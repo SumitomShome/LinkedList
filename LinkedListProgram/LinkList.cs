@@ -68,14 +68,28 @@ namespace LinkedList
             }
             return head;
         }
-        internal Node RemoveFirstNode()
+        ///internal Node RemoveFirstNode()
+        //{
+        //if (this.head == null)
+        //return null;
+        //this.head = this.head.next;
+        //Display();
+        //return this.head;
+        //}
+        internal Node RemoveLastNode()
         {
-            if (this.head == null)
+            if (head == null)
                 return null;
-            this.head = this.head.next;
+            if (head.next == null)
+                return null;
+            Node newNode = head;
+            while (newNode.next.next != null)
+            {
+                newNode = newNode.next;
+            }
+            newNode.next = null;
             Display();
-            return this.head;
+            return head;
         }
-
     }
 }
