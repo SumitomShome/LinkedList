@@ -36,5 +36,37 @@ namespace LinkedList
                 temp = temp.next;
             }
         }
+        internal Node InsertAtParticularPosition(int position, int data)
+        {
+            if (position < 1)
+                Console.WriteLine("Invalid position");
+            if (position == 1)
+            {
+                var newNode = new Node(data);
+                newNode.next = this.head;
+                head = newNode;
+                Console.WriteLine("{0} inserted into the linked list", newNode.data);
+                Display();
+            }
+            else
+            {
+                while (position-- != 0)
+                {
+                    if (position == 1)
+                    {
+                        Node node = new Node(data);
+                        node.next = this.head.next;
+                        head.next = node;
+                        Console.WriteLine("{0} inserted into the linked list", node.data);
+                        Display();
+                        break;
+                    }
+                    head = head.next;
+                }
+                if (position != 1)
+                    Console.WriteLine("Position out of range");
+            }
+            return head;
+        }
     }
 }
