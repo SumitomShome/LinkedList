@@ -46,7 +46,7 @@ namespace LinkedList
                 newNode.next = this.head;
                 head = newNode;
                 Console.WriteLine("{0} inserted into the linked list", newNode.data);
-                Display();
+                //Display();
             }
             else
             {
@@ -58,7 +58,7 @@ namespace LinkedList
                         node.next = this.head.next;
                         head.next = node;
                         Console.WriteLine("{0} inserted into the linked list", node.data);
-                        Display();
+                        //Display();
                         break;
                     }
                     head = head.next;
@@ -68,5 +68,14 @@ namespace LinkedList
             }
             return head;
         }
+        internal Node RemoveFirstNode()
+        {
+            if (this.head == null)
+                return null;
+            this.head = this.head.next;
+            Display();
+            return this.head;
+        }
+
     }
 }
